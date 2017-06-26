@@ -1,0 +1,10 @@
+kniznica_landing:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }
+    methods:  [GET]
+
+kniznica_add_book:
+    path:     /add
+    defaults: { _controller: AppBundle:Default:createNewBook }
+    methods:  [GET]
+
