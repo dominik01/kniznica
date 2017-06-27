@@ -1,0 +1,50 @@
+{% extends 'AppBundle:Landing:base.html.twig' %}
+{% block body %}
+    <section>
+        <h1 class="mainheading">Firemná knižnica: Editacia</h1>
+        <form method="POST" class="form-horizontal" style="max-width: 50%" action="{{ path('kniznica_insert_book',{'type': 2}) }}">
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="hidden"  name="id" value="{{ book.id }}" class="form-control" id="id" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Názov</label>
+                <div class="col-sm-10">
+                    <input type="text" required name="name" value="{{ book.name }}" class="form-control" id="name" placeholder="Názov">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="author" class="col-sm-2 control-label">Autor</label>
+                <div class="col-sm-10">
+                    <input type="text" value="{{ book.author }}" required class="form-control" name="author" id="author" placeholder="Autor">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="year" class="col-sm-2 control-label">Rok</label>
+                <div class="col-sm-10">
+                    <input type="number" value="{{ book.yearPublished }}" required class="form-control" name="year" id="author" placeholder="Rok">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gender" class="col-sm-2 control-label">Žáner</label>
+                <div class="col-sm-10">
+                    <input type="text"  required class="form-control" value="{{ book.gender }}" name="gender" id="author" placeholder="Žáner">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-sm-2 control-label">Popis</label>
+                <div class="col-sm-10">
+                    <textarea name="description" class="form-control" rows="3" placeholder="Popis">{{ book.description }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Edituj</button>
+                </div>
+            </div>
+        </form>
+
+    </section>
+{% endblock %}

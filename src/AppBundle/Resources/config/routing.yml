@@ -4,7 +4,24 @@ kniznica_landing:
     methods:  [GET]
 
 kniznica_add_book:
-    path:     /add
+    path:     /newBook
     defaults: { _controller: AppBundle:Default:createNewBook }
     methods:  [GET]
+kniznica_insert_book:
+    path:     /newBook/{type}
+    defaults: { _controller: AppBundle:Default:saveBook }
+    methods:  [POST]
+kniznica_delete_book:
+    path:     /{id}
+    defaults: { _controller: AppBundle:Default:deleteBook }
+    methods:  [GET]
+kniznica_detail_book:
+    path:     /detail/{id}
+    defaults: { _controller: AppBundle:Default:detailBook }
+    methods:  [GET]
+kniznica_edit_book:
+    path:     /detail/{id}/edit
+    defaults: { _controller: AppBundle:Default:editBook }
+    methods:  [GET]
+
 

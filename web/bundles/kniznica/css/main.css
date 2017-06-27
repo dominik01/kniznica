@@ -1,0 +1,14 @@
+.mainheading{
+    font-size: 2em;
+    margin: 0.5em;
+}
+.bookheading{
+    margin: 0.7em;
+    font-size: 1.5em;
+    font-variant: small-caps;
+}
+
+.bookdetail{
+    padding:0.5em;
+    max-width: 40%;
+}

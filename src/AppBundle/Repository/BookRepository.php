@@ -23,4 +23,29 @@ class BookRepository extends \Doctrine\ORM\EntityRepository
         $this->_em->flush();
         return 1;
     }
+
+    public function editBook($data){
+        $book = $this->find($data['id']);
+        if(empty($book)){
+            return 0;
+        }
+        $book->setName($data['name']);
+        $book->setAuthor($data['author']);
+        $book->setYearPublished($data['year']);
+        $book->setGender($data['gender']);
+        $book->setDescription($data['description']);
+        $this->_em->persist($book);
+        $this->_em->flush();
+        return 1;
+    }
+
+    public function deleteBook($id){
+        $book = $this->find($id);
+        if(empty($book)){
+            return 0;
+        }
+        $this->_em->remove($book);
+        $this->_em->flush();
+        return 1;
+    }
 }

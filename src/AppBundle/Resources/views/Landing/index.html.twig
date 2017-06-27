@@ -1,4 +1,65 @@
 {% extends 'AppBundle:Landing:base.html.twig' %}
 {% block body %}
-    <p>Hurra</p>
+    <section>
+        <h1 class="mainheading">Firemná knižnica: zoznam</h1>
+
+        {% if msg is defined and msg == 'added' %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                Kniha bola úspešne pridaná.
+            </div>
+        {% endif %}
+
+
+        {% if msg is defined and msg == 'deleted' %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                Kniha bola úspešne odstránená.
+            </div>
+        {% endif %}
+
+        {% if msg is defined and msg == 'error' %}
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                Chyba. Takáto kniha neexistuje!
+            </div>
+        {% endif %}
+
+        {% if msg is defined and msg == 'edited' %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                Kniha bola úspešne editovaná.
+            </div>
+        {% endif %}
+
+
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Názov</th>
+                        <th>Autor</th>
+                        <th>Žáner</th>
+                        <th>Akcia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <td>{{ book.id|escape }}</td>
+                            <td>{{ book.name|escape }}</td>
+                            <td>{{ book.author|escape }}</td>
+                            <td>{{ book.gender|escape }}</td>
+                            <td><a class="btn btn-default btn-sm" href="{{ path('kniznica_detail_book', {'id': book.id}) }}" role="button">Detail</a>
+                                <a class="btn btn-default btn-sm" href="{{ path('kniznica_delete_book', {'id': book.id}) }}" role="button">Zmazať</a>
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </section>
 {% endblock %}

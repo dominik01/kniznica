@@ -1,0 +1,21 @@
+{% extends 'AppBundle:Landing:base.html.twig' %}
+{% block body %}
+    <section>
+        <h1 class="mainheading">Firemná knižnica:</h1>
+        <div class="bookdetail">
+            <h2 class="bookheading">{{ book.name }}</h2>
+            <ul>
+                <li>ID: {{ book.id }}</li>
+                <li>Autor: {{ book.author }}</li>
+                <li>Rok: {{ book.yearPublished }}</li>
+                <li>Zaner: {{ book.gender }}</li>
+                <li>Popis: {{ book.description }}</li>
+            </ul>
+            <a class="btn btn-default btn-sm" href="{{ path('kniznica_delete_book', {'id': book.id}) }}" role="button">Zmazať</a>
+            <a class="btn btn-default btn-sm" href="{{ path('kniznica_edit_book', {'id': book.id}) }}" role="button">Editovat</a>
+
+        </div>
+
+
+    </section>
+{% endblock %}
